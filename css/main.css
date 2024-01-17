@@ -1,3 +1,4 @@
-window#appTemplate { /* Rename appTemplate to the ID of the app */
-  color: #f0f;
+#LightsOff > div.body {
+  padding: 0;
+  border-top: var(--win-border);
 }

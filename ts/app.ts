@@ -1,23 +1,24 @@
-import { DefaultIcon } from "$ts/images/apps";
-import { Runtime } from "./runtime";
-import AppSvelte from "../App.svelte";
+import { LightsOffIcon } from "$ts/images/apps";
 import { App } from "$types/app";
+import AppSvelte from "../App.svelte";
+import { Runtime } from "./runtime";
 
-export const app: App = {
+export const LightsOff: App = {
   metadata: {
-    name: "App Template",
-    description: "This is an app template",
-    author: "The ArcOS Team",
-    version: "0.0.0",
-    icon: DefaultIcon
+    name: "Lights Off",
+    description: "Turn off all the lights!",
+    version: "1.0.0",
+    author: "Tim Horton, ported to ArcOS by IzKuipers",
+    icon: LightsOffIcon,
+    appGroup: "entertainment",
   },
   runtime: Runtime,
   content: AppSvelte,
-  id: "appTemplate",
-  size: { w: 0, h: 0 },
-  minSize: { w: 0, h: 0 },
-  maxSize: { w: 0, h: 0 },
-  pos: { x: 0, y: 0 },
+  id: "LightsOff",
+  size: { w: 442, h: NaN },
+  pos: { x: 80, y: 80 },
+  minSize: { w: 442, h: NaN },
+  maxSize: { w: 442, h: NaN },
   state: {
     minimized: false,
     maximized: false,
@@ -26,8 +27,10 @@ export const app: App = {
     resizable: false
   },
   controls: {
-    minimize: false,
+    minimize: true,
     maximize: false,
-    close: false
-  }
+    close: true
+  },
+  glass: true,
+  singleInstance: true
 }
