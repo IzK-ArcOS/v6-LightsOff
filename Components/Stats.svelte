@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { Runtime } from "../ts/runtime";
-  import { App } from "$types/app";
   import { UserDataStore } from "$ts/stores/user";
+  import { App } from "$types/app";
+  import { Runtime } from "../ts/runtime";
 
   export let app: App;
   export let runtime: Runtime;

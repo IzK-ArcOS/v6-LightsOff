@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
-import type { LightsOffGrid } from "./types";
 import type { Runtime } from "./runtime";
+import type { LightsOffGrid } from "./types";
 
 export class LightsOffLevels {
   runtime: Runtime;
