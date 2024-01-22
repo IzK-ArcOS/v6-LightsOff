@@ -7,13 +7,7 @@
   export let app: App;
   export let runtime: Runtime;
 
-  let level = 0;
-  let clicks = 0;
-
-  onMount(() => {
-    runtime.LEVEL.subscribe((v) => (level = v));
-    runtime.Clicks.subscribe((v) => (clicks = v));
-  });
+  const { LEVEL, Clicks } = runtime;
 
   function reset() {
     $UserDataStore.appdata[app.id] = null;
@@ -25,8 +19,8 @@
 <div class="statistics">
   <button class="reset-game" on:click={reset}>Reset</button>
   <div class="right">
-    <div class="stat">Level {level + 1}</div>
-    <div class="stat">{clicks} Click{clicks == 1 ? "" : "s"}</div>
+    <div class="stat">Level {$LEVEL + 1}</div>
+    <div class="stat">{$Clicks} Click{$Clicks == 1 ? "" : "s"}</div>
   </div>
 </div>
 

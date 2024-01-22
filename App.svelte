@@ -10,16 +10,12 @@
   export let app: App;
   export let runtime: Runtime;
 
-  let grid: LightsOffGrid = [];
-
-  onMount(() => {
-    runtime.Grid.subscribe((v) => (grid = v));
-  });
+  const { Grid } = runtime;
 </script>
 
 <Stats {app} {runtime} />
 <div class="grid">
-  {#each grid as row, y}
+  {#each $Grid as row, y}
     {#each row as light, x}
       <Light {light} {x} {y} {runtime} />
     {/each}
