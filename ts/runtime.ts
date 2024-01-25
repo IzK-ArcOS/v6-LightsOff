@@ -104,7 +104,7 @@ export class Runtime extends AppRuntime {
 
     const data = UserDataStore.get().appdata[this.app.id];
 
-    if (data) {
+    if (data && data.level) {
       this.Levels.loadLevel(data.level as number);
       this.Grid.set(data.grid as LightsOffGrid);
       this.Clicks.set(data.clicks as number);
