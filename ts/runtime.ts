@@ -41,7 +41,6 @@ export class Runtime extends AppRuntime {
     this.loadData();
   }
 
-
   containsLights() {
     this.Log("Checking lights", "containsLights");
     return JSON.stringify(this.Grid.get()).includes("true");
@@ -59,10 +58,11 @@ export class Runtime extends AppRuntime {
         title: "You Win!",
         message:
           "You've managed to complete all 8 levels of Lights Off. The game will be reset so you can play it again in the future.",
-        buttons: [{ caption: "Play again", action() { }, suggested: true }],
+        buttons: [{ caption: "Play again", action() {}, suggested: true }],
         image: LightsOffIcon,
       },
-      this.pid, true
+      this.pid,
+      true
     );
   }
 
@@ -71,9 +71,8 @@ export class Runtime extends AppRuntime {
 
     const grid = this.Grid.get();
 
-    if (!grid[y]) throw new Error(`y doesn't exist ${y}`);
-    if (typeof grid[y][x] !== "boolean")
-      throw new Error(`x doesn't exist ${y} ${x}`);
+    if (!grid[y]) return;
+    if (typeof grid[y][x] !== "boolean") return;
 
     this.Clicks.set(this.Clicks.get() + 1);
 
