@@ -24,13 +24,13 @@ export const LightsOff: App = {
     maximized: false,
     headless: false,
     fullscreen: false,
-    resizable: false
+    resizable: false,
   },
   controls: {
     minimize: true,
     maximize: false,
-    close: true
+    close: true,
   },
   glass: true,
-  singleInstance: true
-}
+  singleInstance: true,
+};

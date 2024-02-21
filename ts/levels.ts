@@ -77,13 +77,11 @@ export class LightsOffLevels {
     this.runtime.Clicks.set(0);
   }
   checkNextLevel() {
-    if (this.runtime.containsLights() || get(this.runtime.Clicks) == 0)
-      return false;
+    if (this.runtime.containsLights() || get(this.runtime.Clicks) == 0) return false;
 
     this.runtime.LEVEL.set(get(this.runtime.LEVEL) + 1);
 
-    if (get(this.runtime.LEVEL) > this._store.length)
-      return this.runtime.finish();
+    if (get(this.runtime.LEVEL) > this._store.length) return this.runtime.finish();
 
     this.loadLevel(get(this.runtime.LEVEL));
 
