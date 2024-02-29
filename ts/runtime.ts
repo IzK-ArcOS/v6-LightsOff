@@ -20,6 +20,7 @@ export class Runtime extends AppRuntime {
     [false, false, false, false, false],
     [false, false, false, false, false],
   ]);
+  Transitioning = Store<boolean>(false);
   Clicks = Store<number>(0);
   LEVEL = Store<number>(0);
   Levels: LightsOffLevels;
@@ -49,16 +50,22 @@ export class Runtime extends AppRuntime {
   finish() {
     this.Log("User has won! Finishing...", "finish");
 
-    this.LEVEL.set(0);
-    this.Clicks.set(0);
-    this.Levels.loadLevel(this.LEVEL.get());
-
     createErrorDialog(
       {
         title: "You Win!",
         message:
           "You've managed to complete all 8 levels of Lights Off. The game will be reset so you can play it again in the future.",
-        buttons: [{ caption: "Play again", action() {}, suggested: true }],
+        buttons: [
+          {
+            caption: "Play again",
+            action: () => {
+              this.LEVEL.set(0);
+              this.Clicks.set(0);
+              this.Levels.loadLevel(this.LEVEL.get());
+            },
+            suggested: true,
+          },
+        ],
         image: LightsOffIcon,
       },
       this.pid,

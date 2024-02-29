@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import type { Runtime } from "./runtime";
 import type { LightsOffGrid } from "./types";
+import { sleep } from "$ts/util";
 
 export class LightsOffLevels {
   runtime: Runtime;
@@ -76,14 +77,22 @@ export class LightsOffLevels {
     this.runtime.LEVEL.set(level);
     this.runtime.Clicks.set(0);
   }
-  checkNextLevel() {
+  async checkNextLevel() {
     if (this.runtime.containsLights() || get(this.runtime.Clicks) == 0) return false;
+
+    this.runtime.Transitioning.set(true);
+
+    await sleep(300);
 
     this.runtime.LEVEL.set(get(this.runtime.LEVEL) + 1);
 
     if (get(this.runtime.LEVEL) > this._store.length) return this.runtime.finish();
 
     this.loadLevel(get(this.runtime.LEVEL));
+
+    await sleep(200);
+
+    this.runtime.Transitioning.set(false);
 
     return true;
   }

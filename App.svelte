@@ -8,11 +8,11 @@
   export let app: App;
   export let runtime: Runtime;
 
-  const { Grid } = runtime;
+  const { Grid, Transitioning } = runtime;
 </script>
 
 <Stats {app} {runtime} />
-<div class="grid">
+<div class="grid" class:transitioning={$Transitioning}>
   {#each $Grid as row, y}
     {#each row as light, x}
       <Light {light} {x} {y} {runtime} />
@@ -27,5 +27,9 @@
     grid-template-rows: repeat(5, 80px);
     grid-gap: 5px;
     margin: 10px;
+  }
+
+  div.grid.transitioning {
+    opacity: 0 !important;
   }
 </style>

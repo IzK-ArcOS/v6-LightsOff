@@ -16,7 +16,9 @@
 </script>
 
 <div class="statistics">
-  <button class="reset-game" on:click={reset}>Reset</button>
+  <button class="reset-game" on:click={reset} disabled={$LEVEL == 0 && $Clicks == 0}>
+    Start Over
+  </button>
   <div class="right">
     <div class="stat">Level {$LEVEL + 1}</div>
     <div class="stat">{$Clicks} Click{$Clicks == 1 ? "" : "s"}</div>
