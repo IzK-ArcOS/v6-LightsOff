@@ -1,5 +1,6 @@
 import { SafeMode } from "$state/Desktop/ts/store";
 import { LightsOffIcon } from "$ts/images/apps";
+import { HelpArticles } from "$ts/stores/articles";
 import { App } from "$types/app";
 import AppSvelte from "../App.svelte";
 import { Runtime } from "./runtime";
@@ -35,4 +36,5 @@ export const LightsOff: App = {
   glass: true,
   singleInstance: true,
   loadCondition: () => !SafeMode.get(),
+  helpArticle: HelpArticles.lightsOff,
 };
