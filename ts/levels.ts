@@ -1,7 +1,7 @@
+import { sleep } from "$ts/util";
 import { get } from "svelte/store";
 import type { Runtime } from "./runtime";
 import type { LightsOffGrid } from "./types";
-import { sleep } from "$ts/util";
 
 export class LightsOffLevels {
   runtime: Runtime;
