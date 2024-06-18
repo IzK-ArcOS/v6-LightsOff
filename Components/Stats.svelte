@@ -46,7 +46,7 @@
     gap: 10px;
     border: var(--button-glass-bg) 1px solid;
     padding: 0 10px;
-    border-radius: 7.5px;
+    border-radius: var(--button-border-rad);
   }
 
   div.statistics div.right div.stat {
