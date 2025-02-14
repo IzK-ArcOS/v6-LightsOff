@@ -2,3 +2,7 @@
   padding: 0;
   border-top: var(--win-border);
 }
+
+#LightsOff {
+  overflow: visible !important;
+}
